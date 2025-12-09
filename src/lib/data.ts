@@ -48,22 +48,49 @@ export const projects: Project[] = [
 export const techStack = [
   {
     category: "Frontend",
-    techs: [React, Nextjs, Javascript, Astro, Tailwindcss, Typescript],
+    techs: [
+      { name: "React", component: React },
+      { name: "Next.js", component: Nextjs },
+      { name: "JavaScript", component: Javascript },
+      { name: "Astro", component: Astro },
+      { name: "Tailwind CSS", component: Tailwindcss },
+      { name: "TypeScript", component: Typescript },
+    ],
   },
   {
     category: "Backend",
-    techs: [Springboot, Postgresql, Java, Fastapi, Mongodb, Redis],
+    techs: [
+      { name: "Spring Boot", component: Springboot },
+      { name: "PostgreSQL", component: Postgresql },
+      { name: "Java", component: Java },
+      { name: "FastAPI", component: Fastapi },
+      { name: "MongoDB", component: Mongodb },
+      { name: "Redis", component: Redis },
+    ],
   },
   {
     category: "Cloud Services",
-    techs: [Azure, Vercel, Supabase],
+    techs: [
+      { name: "Azure", component: Azure },
+      { name: "Vercel", component: Vercel },
+      { name: "Supabase", component: Supabase },
+    ],
   },
   {
     category: "Microservices",
-    techs: [Kafka],
+    techs: [{ name: "Kafka", component: Kafka }],
   },
   {
     category: "Favorite Dev Tools",
-    techs: [Intellij, Zed, Vscode, Bun, Shadcn, Vite, Notion, Postman],
+    techs: [
+      { name: "IntelliJ IDEA", component: Intellij },
+      { name: "Zed", component: Zed },
+      { name: "VS Code", component: Vscode },
+      { name: "Bun", component: Bun },
+      { name: "Shadcn/ui", component: Shadcn },
+      { name: "Vite", component: Vite },
+      { name: "Notion", component: Notion },
+      { name: "Postman", component: Postman },
+    ],
   },
 ];
