@@ -1,0 +1,19 @@
+---
+import type { Project } from "../lib/projects";
+import P from "./ui/P.astro";
+
+interface Props {
+    project: Project;
+}
+
+const { project } = Astro.props;
+const { title, description, href, coverUrl } = project;
+---
+
+<section>
+    <img src="" alt="" />
+    <div>
+        <P>{title}</P>
+        <P>{description}</P>
+    </div>
+</section>

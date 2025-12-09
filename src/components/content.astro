@@ -1,4 +1,7 @@
 ---
+import { projects } from "../lib/projects";
+import Profile from "./profile.astro";
+import ProjectCard from "./project-card.astro";
 import H4 from "./ui/H4.astro";
 import P from "./ui/P.astro";
 import Separator from "./ui/separator.astro";
@@ -6,21 +9,39 @@ import Separator from "./ui/separator.astro";
 
 <section>
     <section>
-        <div>
-            <H4>Jonatan Acuña</H4>
-            <div>
-                <P>Fullstack Software Engineer</P>
-                <P>Hi there!</P>
-            </div>
-        </div>
-        <div>
-            <img src="" alt="" />
+        <Profile />
+    </section>
+    <Separator />
+    <section>
+        <div class="grid grid-cols-2">
+            <H4>Experience</H4>
+
+            <ul class="flex gap-2">
+                <li>
+                    <P>
+                        Looking for my first opportunity to challenge myself and
+                        contribute to a team.
+                    </P>
+                </li>
+            </ul>
         </div>
     </section>
     <Separator />
-    <section></section>
-    <Separator />
-    <section></section>
+    <section>
+        <div class="grid grid-cols-2">
+            <H4>Projects</H4>
+
+            <ul>
+                {
+                    projects.map((project) => (
+                        <li class="not-first:mt-4">
+                            <ProjectCard project={project} />
+                        </li>
+                    ))
+                }
+            </ul>
+        </div>
+    </section>
     <Separator />
     <section></section>
 </section>
