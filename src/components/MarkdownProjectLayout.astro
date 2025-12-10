@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout>
-    <article class="py-16 px-4 max-w-3xl mx-auto">
+    <article class="py-8 md:py-16">
         <!-- Back button -->
         <a
             href="/"
@@ -36,13 +36,15 @@ const { frontmatter } = Astro.props;
                 )
             }
 
-            <h1 class="scroll-m-20 text-4xl font-bold tracking-tight mb-4">
+            <h1
+                class="scroll-m-20 text-2xl md:text-4xl font-bold tracking-tight mb-4"
+            >
                 {frontmatter.title}
             </h1>
 
             {
                 frontmatter.description && (
-                    <p class="text-lg text-muted-foreground">
+                    <p class="text-base md:text-lg text-muted-foreground">
                         {frontmatter.description}
                     </p>
                 )
@@ -218,5 +220,74 @@ const { frontmatter } = Astro.props;
     .prose td {
         padding: 0.75rem;
         border: 1px solid hsl(var(--border));
+    }
+
+    /* Responsive styles for mobile */
+    @media (max-width: 768px) {
+        .prose h1 {
+            font-size: 1.5rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose h2 {
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose h3 {
+            font-size: 1.125rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prose h4 {
+            font-size: 1rem;
+            margin-top: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .prose p {
+            font-size: 0.875rem;
+            margin-top: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .prose code {
+            font-size: 0.75rem;
+        }
+
+        .prose pre {
+            padding: 0.75rem;
+        }
+
+        .prose pre code {
+            font-size: 0.75rem;
+        }
+
+        .prose ul,
+        .prose ol {
+            padding-left: 1.25rem;
+        }
+
+        .prose li {
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .prose blockquote {
+            padding-left: 0.75rem;
+        }
+
+        .prose img {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .prose table th,
+        .prose table td {
+            padding: 0.5rem;
+        }
     }
 </style>
