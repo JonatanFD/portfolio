@@ -1,19 +1,27 @@
 ---
 layout: ../../components/MarkdownProjectLayout.astro
 title: "📚 Level Up Journey 🎮"
-description: "A gamified learning platform for students from Universidad Peruana de Ciencias Aplicadas, Lima, Peru"
+description: "An immersive gamified learning platform for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru."
 date: "2024-01-15"
-tags: ["Fullstack", "React", "Spring Boot", "PostgreSQL", "Gamification"]
+tags: [
+      "Full-Stack",
+      "Next.js",
+      "Spring Boot",
+      "PostgreSQL",
+      "Microservices",
+      "Domain-Driven Design",
+      "Azure",
+    ]
 coverUrl: "/public/LevelUpJourney.webp"
 ---
 
 ## Overview
 
-**Level Up Journey** is an innovative gamified learning platform designed specifically for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru. The platform transforms traditional learning into an engaging, game-like experience that motivates students to achieve their academic goals.
+**Level Up Journey** is an innovative gamified learning platform built for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru. It turns traditional coursework into an engaging, game-like journey that keeps learners accountable, motivated, and aware of their academic progress.
 
 ## Problem Statement
 
-Traditional learning management systems often lack engagement and fail to motivate students to consistently participate in their coursework. Students need a more interactive and rewarding approach to track their progress and stay motivated throughout their academic journey.
+Traditional learning management systems often lack engaging feedback loops and fail to motivate students to participate consistently. Learners need a more interactive and rewarding approach to track progress, celebrate milestones, and sustain momentum throughout the semester.
 
 ## Solution
 
@@ -124,4 +132,6 @@ Key entities include:
 
 ## Lessons Learned
 
-1. **User-Centered Design** - Regular user testing with students was crucial for feature
+1. **User-Centered Design** - Regular usability sessions with UPC students validated assumptions and prioritized features that removed friction.
+2. **Data-Informed Gamification** - Metrics on retention and badge completion guided how rewards were balanced so they stayed motivating instead of overwhelming.
+3. **Incremental Delivery** - Shipping the platform in small cross-functional slices kept momentum high and enabled quick feedback loops with faculty stakeholders.

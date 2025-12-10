@@ -19,10 +19,10 @@ const { title, description, href, coverUrl, tags } = project;
         <p class="font-semibold">{title}</p>
         <p>{description}</p>
 
-        <div class="flex gap-2 mt-4">
+        <div class="mt-4">
             {
                 tags.map((tag) => (
-                    <span class="px-2 py-1 text-xs rounded-md bg-secondary">
+                    <span class="px-2 py-1 text-xs rounded-md bg-secondary text-zinc-400">
                         {tag}
                     </span>
                 ))
@@ -30,7 +30,7 @@ const { title, description, href, coverUrl, tags } = project;
         </div>
 
         <p>
-            <a href={href} class="hover:underline">See More</a>
+            <a href={href} class="hover:underline">Explore the project →</a>
         </p>
     </div>
 </section>

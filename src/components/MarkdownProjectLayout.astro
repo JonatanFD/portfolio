@@ -21,7 +21,7 @@ const { frontmatter } = Astro.props;
             href="/"
             class="inline-flex items-center gap-2 text-sm hover:underline mb-8"
         >
-            Back to home
+            ← Back to home
         </a>
 
         <!-- Header -->
@@ -67,7 +67,7 @@ const { frontmatter } = Astro.props;
                 frontmatter.tags && frontmatter.tags.length > 0 && (
                     <div class="flex gap-2 mt-4">
                         {frontmatter.tags.map((tag) => (
-                            <span class="px-2 py-1 text-xs rounded-md bg-secondary">
+                            <span class="px-2 py-1 text-xs rounded-md bg-secondary text-zinc-400">
                                 {tag}
                             </span>
                         ))}
