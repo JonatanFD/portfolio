@@ -1,29 +1,37 @@
 ---
 import H4 from "./ui/H4.astro";
 import Github from "./ui/icons/github.astro";
-import LinkedIn from "./ui/icons/linkedin.astro";
+import LinkedIn from "./ui/icons/linkedIn.astro";
 import P from "./ui/P.astro";
 ---
 
-<div>
-    <H4>Jonatan Acuña</H4>
+<div class="grid grid-cols-2 gap-4">
     <div>
-        <P className="text-zinc-400">Fullstack Software Engineer</P>
-        <P>Hi there!</P>
+        <H4>Jonatan Acuña</H4>
+        <div>
+            <P className="text-zinc-400">Fullstack Software Engineer</P>
+            <P className="text-balance"
+                >Hi there! I am a Student Software Engineer from Lima, Peru 🇵🇪.
+                I love creating meaningful experiences through code and design.
+                Specialized in Fullstack Development and Software Architecture.
+            </P>
+        </div>
+        <ul class="flex gap-4 mt-4">
+            <li>
+                <a href="https://github.com/JonatanFD">
+                    <Github class="size-6" />
+                </a>
+            </li>
+            <li>
+                <a
+                    href="https://www.linkedin.com/in/jonatan-acu%C3%B1a-corahua-94a136372/"
+                >
+                    <LinkedIn class="size-6" />
+                </a>
+            </li>
+        </ul>
     </div>
-    <ul class="flex gap-2 mt-4">
-        <li>
-            <a href="https://github.com/JonatanFD">
-                <Github class="size-6" />
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <LinkedIn class="size-6" />
-            </a>
-        </li>
-    </ul>
-</div>
-<div>
-    <img src="" alt="" />
+    <div>
+        <img src="" alt="" />
+    </div>
 </div>
