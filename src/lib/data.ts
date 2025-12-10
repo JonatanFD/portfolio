@@ -1,12 +1,17 @@
+import Android from "../components/ui/icons/android.astro";
 import Astro from "../components/ui/icons/astro.astro";
 import Azure from "../components/ui/icons/azure.astro";
 import Bun from "../components/ui/icons/bun.astro";
+import Docker from "../components/ui/icons/docker.astro";
 import Fastapi from "../components/ui/icons/fastapi.astro";
 import Intellij from "../components/ui/icons/intellij.astro";
 import Java from "../components/ui/icons/java.astro";
 import Javascript from "../components/ui/icons/javascript.astro";
+import Jetpackcompose from "../components/ui/icons/jetpackcompose.astro";
 import Kafka from "../components/ui/icons/kafka.astro";
+import Linux from "../components/ui/icons/linux.astro";
 import Mongodb from "../components/ui/icons/mongodb.astro";
+import Netlify from "../components/ui/icons/netlify.astro";
 import Nextjs from "../components/ui/icons/nextjs.astro";
 import Notion from "../components/ui/icons/notion.astro";
 import Postgresql from "../components/ui/icons/postgresql.astro";
@@ -20,6 +25,7 @@ import Tailwindcss from "../components/ui/icons/tailwindcss.astro";
 import Typescript from "../components/ui/icons/typescript.astro";
 import Vercel from "../components/ui/icons/vercel.astro";
 import Vite from "../components/ui/icons/vite.astro";
+import Vitest from "../components/ui/icons/vitest.astro";
 import Vscode from "../components/ui/icons/vscode.astro";
 import Zed from "../components/ui/icons/zed.astro";
 
@@ -45,7 +51,15 @@ export const projects: Project[] = [
   },
 ];
 
-export const techStack = [
+interface TechStack {
+  category: string;
+  techs: {
+    name: string;
+    component: any;
+  }[];
+}
+
+export const techStack: TechStack[] = [
   {
     category: "Frontend",
     techs: [
@@ -55,6 +69,7 @@ export const techStack = [
       { name: "Astro", component: Astro },
       { name: "Tailwind CSS", component: Tailwindcss },
       { name: "TypeScript", component: Typescript },
+      { name: "Vitest", component: Vitest },
     ],
   },
   {
@@ -74,11 +89,26 @@ export const techStack = [
       { name: "Azure", component: Azure },
       { name: "Vercel", component: Vercel },
       { name: "Supabase", component: Supabase },
+      { name: "Netlify", component: Netlify },
     ],
   },
   {
     category: "Microservices",
-    techs: [{ name: "Kafka", component: Kafka }],
+    techs: [
+      { name: "Linux", component: Linux },
+      { name: "Kafka", component: Kafka },
+      {
+        name: "Docker",
+        component: Docker,
+      },
+    ],
+  },
+  {
+    category: "Mobile Development",
+    techs: [
+      { name: "Android", component: Android },
+      { name: "Jetpack Compose", component: Jetpackcompose },
+    ],
   },
   {
     category: "Favorite Dev Tools",

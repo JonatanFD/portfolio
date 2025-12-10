@@ -1,5 +1,6 @@
 ---
 import { projects, techStack } from "../lib/data";
+import Contact from "./contact.astro";
 import Profile from "./profile.astro";
 import ProjectCard from "./project-card.astro";
 import H4 from "./ui/H4.astro";
@@ -58,7 +59,7 @@ import Separator from "./ui/separator.astro";
                     techStack.map((cat) => (
                         <section class="not-first:mt-4">
                             <P>{cat.category}</P>
-                            <ul class="grid grid-cols-6 gap-6 mt-2">
+                            <ul class="grid grid-cols-5 gap-6 mt-2">
                                 {cat.techs.map((tech) => (
                                     <li title={tech.name}>
                                         {<tech.component class="size-6" />}
@@ -70,5 +71,11 @@ import Separator from "./ui/separator.astro";
                 }
             </div>
         </div>
+    </section>
+
+    <Separator />
+
+    <section>
+        <Contact />
     </section>
 </section>
