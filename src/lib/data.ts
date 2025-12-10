@@ -37,13 +37,7 @@ export interface Project {
   description: string;
   href: string;
   coverUrl: string;
-  tags: {
-    fullstack?: boolean;
-    frontend?: boolean;
-    backend?: boolean;
-    mobile?: boolean;
-    desktop?: boolean;
-  };
+  tags: string[];
 }
 
 export const projects: Project[] = [
@@ -53,9 +47,13 @@ export const projects: Project[] = [
       "A gamified learning platform for students 🎓 from Universidad Peruana de Ciencias Aplicadas, Lima, Peru",
     href: "/projects/levelupjourney",
     coverUrl: "LevelUpJourney.webp",
-    tags: {
-      fullstack: true,
-    },
+    tags: [
+      "Fullstack",
+      "Next.js",
+      "Spring Boot",
+      "PostgreSQL",
+      "Microservices",
+    ],
   },
 ];
 
