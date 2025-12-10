@@ -1,6 +1,6 @@
 ---
 import { projects, techStack } from "../lib/data";
-import Contact from "./contact.astro";
+import Experience from "./Experience.astro";
 import Profile from "./Profile.astro";
 import ProjectCard from "./ProjectCard.astro";
 import H4 from "./ui/H4.astro";
@@ -8,7 +8,7 @@ import P from "./ui/P.astro";
 import Separator from "./ui/separator.astro";
 ---
 
-<section>
+<section class="flex flex-col gap-8">
     <section class="pt-16">
         <Profile />
     </section>
@@ -16,18 +16,7 @@ import Separator from "./ui/separator.astro";
     <Separator />
 
     <section class="relative">
-        <div class="grid grid-cols-2">
-            <H4 class="sticky top-16 self-start">Experience</H4>
-
-            <ul class="flex gap-2">
-                <li>
-                    <P>
-                        Looking for my first opportunity to challenge myself and
-                        contribute to a team.
-                    </P>
-                </li>
-            </ul>
-        </div>
+        <Experience />
     </section>
 
     <Separator />
@@ -57,12 +46,12 @@ import Separator from "./ui/separator.astro";
             <div>
                 {
                     techStack.map((cat) => (
-                        <section class="not-first:mt-4">
+                        <section class="not-first:mt-8">
                             <P>{cat.category}</P>
                             <ul class="grid grid-cols-5 gap-6 mt-2">
                                 {cat.techs.map((tech) => (
                                     <li title={tech.name}>
-                                        {<tech.component class="size-6" />}
+                                        {<tech.component class="size-8" />}
                                     </li>
                                 ))}
                             </ul>
@@ -71,11 +60,5 @@ import Separator from "./ui/separator.astro";
                 }
             </div>
         </div>
-    </section>
-
-    <Separator />
-
-    <section>
-        <Contact />
     </section>
 </section>
