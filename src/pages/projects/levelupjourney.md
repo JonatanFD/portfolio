@@ -124,22 +124,4 @@ Key entities include:
 
 ## Lessons Learned
 
-1. **User-Centered Design** - Regular user testing with students was crucial for feature refinement
-2. **Scalability** - Planning for growth from the start saved significant refactoring time
-3. **Gamification Balance** - Finding the right balance between game mechanics and educational value was key
-4. **Performance Optimization** - Early optimization prevented major issues as the user base grew
-
-## Live Demo
-
-🔗 [View Live Project](#) _(Coming Soon)_
-
-## Repository
-
-💻 [View Source Code](#) _(Private Repository)_
-
----
-
-**Project Status:** Active Development  
-**Team Size:** 4 developers  
-**Duration:** 6 months  
-**Institution:** Universidad Peruana de Ciencias Aplicadas (UPC)
+1. **User-Centered Design** - Regular user testing with students was crucial for feature

@@ -19,10 +19,12 @@ import Postgresql from "../components/ui/icons/postgresql.astro";
 import Postman from "../components/ui/icons/postman.astro";
 import React from "../components/ui/icons/react.astro";
 import Redis from "../components/ui/icons/redis.astro";
+import Rust from "../components/ui/icons/rust.astro";
 import Shadcn from "../components/ui/icons/shadcn.astro";
 import Springboot from "../components/ui/icons/springboot.astro";
 import Supabase from "../components/ui/icons/supabase.astro";
 import Tailwindcss from "../components/ui/icons/tailwindcss.astro";
+import Terraform from "../components/ui/icons/terraform.astro";
 import Typescript from "../components/ui/icons/typescript.astro";
 import Vercel from "../components/ui/icons/vercel.astro";
 import Vite from "../components/ui/icons/vite.astro";
@@ -128,6 +130,16 @@ export const techStack: TechStack[] = [
       { name: "Notion", component: Notion },
       { name: "Postman", component: Postman },
       { name: "Figma", component: Figma },
+    ],
+  },
+  {
+    category: "Currently Learning",
+    techs: [
+      { name: "Rust", component: Rust },
+      {
+        name: "Terraform",
+        component: Terraform,
+      },
     ],
   },
 ];
