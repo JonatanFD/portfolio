@@ -4,6 +4,7 @@ import Azure from "../components/ui/icons/azure.astro";
 import Bun from "../components/ui/icons/bun.astro";
 import Docker from "../components/ui/icons/docker.astro";
 import Fastapi from "../components/ui/icons/fastapi.astro";
+import Figma from "../components/ui/icons/figma.astro";
 import Intellij from "../components/ui/icons/intellij.astro";
 import Java from "../components/ui/icons/java.astro";
 import Javascript from "../components/ui/icons/javascript.astro";
@@ -34,20 +35,25 @@ export interface Project {
   description: string;
   href: string;
   coverUrl: string;
+  tags: {
+    fullstack?: boolean;
+    frontend?: boolean;
+    backend?: boolean;
+    mobile?: boolean;
+    desktop?: boolean;
+  };
 }
 
 export const projects: Project[] = [
   {
-    title: "Project 1",
-    description: "Description of Project 1",
-    href: "https://example.com/project1",
-    coverUrl: "/images/project1.jpg",
-  },
-  {
-    title: "Project 2",
-    description: "Description of Project 2",
-    href: "https://example.com/project2",
-    coverUrl: "/images/project2.jpg",
+    title: "📚 Level Up Journey 🎮",
+    description:
+      "A gamified learning platform for 🎓 students from Universidad Peruana de Ciencias Aplicadas, Lima, Peru",
+    href: "/projects/levelupjourney",
+    coverUrl: "LevelUpJourney.webp",
+    tags: {
+      fullstack: true,
+    },
   },
 ];
 
@@ -121,6 +127,7 @@ export const techStack: TechStack[] = [
       { name: "Vite", component: Vite },
       { name: "Notion", component: Notion },
       { name: "Postman", component: Postman },
+      { name: "Figma", component: Figma },
     ],
   },
 ];

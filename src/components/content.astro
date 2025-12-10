@@ -1,8 +1,8 @@
 ---
 import { projects, techStack } from "../lib/data";
 import Contact from "./contact.astro";
-import Profile from "./profile.astro";
-import ProjectCard from "./project-card.astro";
+import Profile from "./Profile.astro";
+import ProjectCard from "./ProjectCard.astro";
 import H4 from "./ui/H4.astro";
 import P from "./ui/P.astro";
 import Separator from "./ui/separator.astro";
@@ -15,9 +15,9 @@ import Separator from "./ui/separator.astro";
 
     <Separator />
 
-    <section>
+    <section class="relative">
         <div class="grid grid-cols-2">
-            <H4>Experience</H4>
+            <H4 class="sticky top-16 self-start">Experience</H4>
 
             <ul class="flex gap-2">
                 <li>
@@ -32,9 +32,9 @@ import Separator from "./ui/separator.astro";
 
     <Separator />
 
-    <section>
+    <section class="relative">
         <div class="grid grid-cols-2">
-            <H4>Projects</H4>
+            <H4 class="sticky top-16 self-start">Projects</H4>
 
             <ul>
                 {
@@ -50,9 +50,9 @@ import Separator from "./ui/separator.astro";
 
     <Separator />
 
-    <section>
+    <section class="relative">
         <div class="grid grid-cols-2">
-            <H4>Tech Stack</H4>
+            <H4 class="sticky top-16 self-start">Tech Stack</H4>
 
             <div>
                 {

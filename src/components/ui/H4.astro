@@ -1,11 +1,14 @@
 ---
 interface Props {
     text?: string;
+    class?: string;
 }
-const { text } = Astro.props;
+const { text, class: className } = Astro.props;
 ---
 
-<h4 class="scroll-m-20 text-xl font-semibold tracking-tight">
+<h4
+    class:list={["scroll-m-20 text-xl font-semibold tracking-tight", className]}
+>
     {text}
     <slot />
 </h4>

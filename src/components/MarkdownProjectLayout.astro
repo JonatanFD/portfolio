@@ -1,0 +1,224 @@
+---
+import Layout from "./Layout.astro";
+import H4 from "./ui/H4.astro";
+import P from "./ui/P.astro";
+
+interface Props {
+    frontmatter: {
+        title: string;
+        description?: string;
+        date?: string;
+        tags?: string[];
+        coverUrl?: string;
+    };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout>
+    <article class="py-16 px-4 max-w-3xl mx-auto">
+        <!-- Back button -->
+        <a
+            href="/"
+            class="inline-flex items-center gap-2 text-sm hover:underline mb-8"
+        >
+            ← Back to home
+        </a>
+
+        <!-- Header -->
+        <header class="mb-8">
+            {
+                frontmatter.coverUrl && (
+                    <img
+                        src={frontmatter.coverUrl}
+                        alt={frontmatter.title}
+                        class="w-full rounded-lg mb-6"
+                    />
+                )
+            }
+
+            <h1 class="scroll-m-20 text-4xl font-bold tracking-tight mb-4">
+                {frontmatter.title}
+            </h1>
+
+            {
+                frontmatter.description && (
+                    <P className="text-lg text-muted-foreground">
+                        {frontmatter.description}
+                    </P>
+                )
+            }
+
+            {
+                frontmatter.date && (
+                    <time class="text-sm text-muted-foreground mt-2 block">
+                        {new Date(frontmatter.date).toLocaleDateString(
+                            "en-US",
+                            {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                            },
+                        )}
+                    </time>
+                )
+            }
+
+            {
+                frontmatter.tags && frontmatter.tags.length > 0 && (
+                    <div class="flex gap-2 mt-4">
+                        {frontmatter.tags.map((tag) => (
+                            <span class="px-2 py-1 text-xs rounded-md bg-secondary">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                )
+            }
+        </header>
+
+        <!-- Markdown Content -->
+        <div class="prose prose-slate dark:prose-invert max-w-none">
+            <slot />
+        </div>
+    </article>
+</Layout>
+
+<style is:global>
+    /* Markdown content styling */
+    .prose {
+        color: hsl(var(--foreground));
+    }
+
+    .prose h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        scroll-margin-top: 4rem;
+    }
+
+    .prose h2 {
+        font-size: 1.875rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        scroll-margin-top: 4rem;
+    }
+
+    .prose h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        scroll-margin-top: 4rem;
+    }
+
+    .prose h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .prose p {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.75;
+    }
+
+    .prose a {
+        color: hsl(var(--primary));
+        text-decoration: underline;
+        text-underline-offset: 2px;
+    }
+
+    .prose a:hover {
+        text-decoration: none;
+    }
+
+    .prose strong {
+        font-weight: 600;
+    }
+
+    .prose code {
+        background-color: hsl(var(--muted));
+        padding: 0.2rem 0.4rem;
+        border-radius: 0.25rem;
+        font-size: 0.875em;
+        font-family:
+            ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            "Liberation Mono", "Courier New", monospace;
+    }
+
+    .prose pre {
+        background-color: hsl(var(--muted));
+        padding: 1rem;
+        border-radius: 0.5rem;
+        overflow-x: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .prose pre code {
+        background-color: transparent;
+        padding: 0;
+        border-radius: 0;
+        font-size: 0.875rem;
+    }
+
+    .prose ul,
+    .prose ol {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+    }
+
+    .prose li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .prose blockquote {
+        border-left: 4px solid hsl(var(--primary));
+        padding-left: 1rem;
+        font-style: italic;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        color: hsl(var(--muted-foreground));
+    }
+
+    .prose img {
+        border-radius: 0.5rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .prose hr {
+        border: none;
+        border-top: 1px solid hsl(var(--border));
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .prose table {
+        width: 100%;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-collapse: collapse;
+    }
+
+    .prose th {
+        background-color: hsl(var(--muted));
+        padding: 0.75rem;
+        text-align: left;
+        font-weight: 600;
+        border: 1px solid hsl(var(--border));
+    }
+
+    .prose td {
+        padding: 0.75rem;
+        border: 1px solid hsl(var(--border));
+    }
+</style>

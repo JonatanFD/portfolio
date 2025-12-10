@@ -11,9 +11,17 @@ const { title, description, href, coverUrl } = project;
 ---
 
 <section>
-    <img src="" alt="" />
-    <div>
+    <img
+        src={coverUrl}
+        alt={title}
+        class="rounded-2xl aspect-video object-cover"
+    />
+    <div class="mt-4">
         <P>{title}</P>
         <P>{description}</P>
+
+        <P>
+            <a href={href} class="hover:underline"> See More</a>
+        </P>
     </div>
 </section>
