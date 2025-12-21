@@ -44,7 +44,7 @@ export const projects: Project[] = [
   {
     title: "📚 Level Up Journey 🎮",
     description:
-      "A gamified code learning platform for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru.",
+      "A gamified code learning platform for students at Peruvian University of Applied Sciences (UPC) in Lima, Peru.",
     href: "/projects/levelupjourney",
     coverUrl: "LevelUpJourney.webp",
     tags: [

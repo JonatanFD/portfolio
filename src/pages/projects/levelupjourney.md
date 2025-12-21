@@ -2,7 +2,7 @@
 layout: ../../components/MarkdownProjectLayout.astro
 title: "📚 Level Up Journey 🎮"
 description: "An immersive gamified learning platform for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru."
-date: "2024-01-15"
+date: "2025-11-1"
 tags: [
       "Full-Stack",
       "Next.js",
@@ -12,126 +12,121 @@ tags: [
       "Domain-Driven Design",
       "Azure",
     ]
-coverUrl: "/public/LevelUpJourney.webp"
+coverUrl: "/LevelUpJourney.webp"
 ---
 
-## Overview
+# Engineering Academic Success through Gamification
 
-**Level Up Journey** is an innovative gamified learning platform built for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru. It turns traditional coursework into an engaging, game-like journey that keeps learners accountable, motivated, and aware of their academic progress.
+**Role:** Fullstack Lead & Software Architect
+**Institution:** Universidad Peruana de Ciencias Aplicadas (UPC)
+**Status:** Faculty Approved | Pilot Phase Successfully Completed
 
-## Problem Statement
+---
 
-Traditional learning management systems often lack engaging feedback loops and fail to motivate students to participate consistently. Learners need a more interactive and rewarding approach to track progress, celebrate milestones, and sustain momentum throughout the semester.
+## 📖 Table of Contents
 
-## Solution
+* [Executive Summary](#-executive-summary)
+* [Architectural Design & Strategy](#️-architectural-design--strategy)
+    * [System Context Overview (C4 Model)](#system-context-overview-c4-model)
+    * [Container Architecture & Communication Patterns](#container-architecture--communication-patterns)
+* [Technology Stack](#️-technology-stack)
+* [Service Architecture (Bounded Contexts)](#-service-architecture-bounded-contexts)
+    * [1. Code Execution Service](#1-code-execution-service-golang)
+    * [2. Gamification & Challenge Engine](#2-gamification--challenge-engine-spring-boot)
+    * [3. Identity Management & Learning Resources](#3-identity-management--learning-resources-spring-boot)
+* [Outcomes & Measured Impact](#-outcomes--measured-impact)
+* [Production Roadmap (Azure Migration)](#-production-roadmap-azure-migration)
+* [Academic Context & Team Selection](#-academic-context--team-selection)
 
-Level Up Journey addresses these challenges by implementing:
+---
 
-- **Gamification mechanics** - Points, levels, achievements, and leaderboards
-- **Progress tracking** - Visual representation of learning milestones
-- **Social features** - Collaborative learning and peer comparison
-- **Reward system** - Unlockable content and recognition for achievements
+## 📌 Executive Summary
 
-## Key Features
+**Level Up Journey** is a polyglot microservices platform engineered to address a critical challenge in higher education: the **30% dropout rate** observed in early-stage IT programs, including Software Engineering, Computer Systems, and Computer Science curricula.
 
-### 🎯 Goal Setting & Tracking
-Students can set personal academic goals and track their progress through interactive dashboards with real-time updates.
+The platform combines gamified programming challenges with structured supplementary learning materials, with measurable objectives to **reduce student attrition by 10%** and improve academic performance by **4–5 points** on the institutional 20-point grading scale.
 
-### 🏆 Achievement System
-Earn badges and achievements for completing courses, maintaining streaks, and reaching milestones.
+Following a rigorous 3-week pilot program involving 51 active participants, the project received formal validation and approval from the University's Academic Direction.
 
-### 📊 Performance Analytics
-Detailed analytics help students understand their strengths and areas for improvement with visual charts and insights.
+---
 
-### 👥 Social Learning
-Connect with classmates, form study groups, and compete on leaderboards to foster a collaborative learning environment.
+## 🏗️ Architectural Design & Strategy
 
-### 🎮 Level Progression
-Students advance through levels as they complete activities, creating a sense of continuous progress and accomplishment.
+As the technical lead, I designed the system following **Domain-Driven Design (DDD)** principles to ensure long-term scalability and maintain clear boundaries between business domains. The architecture follows a **microservices-oriented approach**, leveraging asynchronous communication patterns and polyglot persistence strategies.
 
-## Technology Stack
+### System Context Overview (C4 Model)
 
-### Frontend
-- **React.js** - Modern UI library for building interactive interfaces
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **React Query** - Data fetching and caching
-- **Recharts** - Data visualization
+[Insert Image: System Context Diagram]
 
-### Backend
-- **Spring Boot** - Robust Java framework
-- **PostgreSQL** - Relational database for data persistence
-- **Spring Security** - Authentication and authorization
-- **JWT** - Secure token-based authentication
-- **REST API** - RESTful architecture
+> **Integration Highlights:** The platform implements secure authentication through **Google and GitHub OAuth** providers, enabling streamlined user onboarding. Media asset management is handled through **Cloudinary** infrastructure.
 
-### DevOps & Tools
-- **Docker** - Containerization
-- **Git & GitHub** - Version control
-- **Postman** - API testing
-- **IntelliJ IDEA** - Development environment
+### Container Architecture & Communication Patterns
 
-## Architecture
+[Insert Image: Container Diagram]
 
-The application follows a **microservices-inspired architecture** with clear separation of concerns:
+- **Event-Driven Communication:** Inter-service messaging is orchestrated through **Apache Kafka**, enabling loose coupling and resilient data flows.
+- **Low-Latency Processing:** The *Challenges Service* communicates with the *Code Runner* through **gRPC**, ensuring minimal response times for code execution workflows.
+- **Service Coordination:** A custom **Service Discovery** mechanism and **Spring-based API Gateway** manage request routing, load distribution, and security policies.
 
-```
-┌─────────────┐
-│   React     │  ← Frontend (SPA)
-│  Frontend   │
-└──────┬──────┘
-       │
-       ↓ REST API
-┌──────────────┐
-│ Spring Boot  │  ← Backend API
-│   Backend    │
-└──────┬───────┘
-       │
-       ↓
-┌──────────────┐
-│ PostgreSQL   │  ← Database
-│   Database   │
-└──────────────┘
-```
+---
 
-## Database Design
+## 🛠️ Technology Stack
 
-Key entities include:
+| Layer | Technologies |
+| --- | --- |
+| **Frontend** | Next.js, React, Tailwind CSS |
+| **Backend Services** | Spring Boot (Java), Gin (Golang) |
+| **Data Layer** | PostgreSQL (Relational), MongoDB (Document Store) |
+| **Infrastructure** | Docker-in-Docker (DinD), Apache Kafka, gRPC |
+| **Cloud Strategy** | Azure Container Apps, Azure Service Bus, Azure Database for PostgreSQL |
 
-- **Users** - Student profiles and authentication
-- **Courses** - Academic courses and content
-- **Achievements** - Badges and unlockables
-- **Progress** - Learning progress tracking
-- **Leaderboards** - Ranking and competition data
+---
 
-## Challenges & Solutions
+## 🧩 Service Architecture (Bounded Contexts)
 
-### Challenge 1: Performance with Large Datasets
-**Solution:** Implemented pagination, lazy loading, and database indexing to handle thousands of students efficiently.
+Each microservice encapsulates a distinct **Bounded Context**, designed for independent scalability and operational resilience.
 
-### Challenge 2: Real-time Updates
-**Solution:** Used polling with React Query to provide near real-time updates without WebSocket complexity.
+### 1. Code Execution Service (Golang)
 
-### Challenge 3: Engagement Retention
-**Solution:** Designed carefully balanced gamification mechanics based on educational psychology principles.
+[Insert Image: Component Diagram - Code Runner]
 
-## Results & Impact
+> Developed with the **Gin** framework, this service provides secure execution of student-submitted code within isolated containerized environments using **Docker-in-Docker (DinD)**. This approach ensures complete isolation between user code and production infrastructure while delivering real-time execution feedback.
 
-- ✅ Increased student engagement by creating interactive learning experiences
-- ✅ Improved course completion rates through motivation mechanics
-- ✅ Enhanced peer collaboration through social features
-- ✅ Provided valuable insights through analytics dashboards
+### 2. Gamification & Challenge Engine (Spring Boot)
 
-## Future Enhancements
+[Insert Image: Component Diagram - Challenges]
 
-- 🔮 Mobile application (Android/iOS)
-- 🔮 AI-powered personalized learning recommendations
-- 🔮 Integration with university LMS systems
-- 🔮 Advanced analytics with machine learning
-- 🔮 Virtual rewards marketplace
+> This service manages the core business logic for programming exercises, experience point allocation, and achievement system triggers. Communication with the Code Execution Service occurs via gRPC to optimize response latency for interactive features.
 
-## Lessons Learned
+### 3. Identity Management & Learning Resources (Spring Boot)
 
-1. **User-Centered Design** - Regular usability sessions with UPC students validated assumptions and prioritized features that removed friction.
-2. **Data-Informed Gamification** - Metrics on retention and badge completion guided how rewards were balanced so they stayed motivating instead of overwhelming.
-3. **Incremental Delivery** - Shipping the platform in small cross-functional slices kept momentum high and enabled quick feedback loops with faculty stakeholders.
+[Insert Image: Component Diagram - Academy]
+
+> Responsible for user identity management across multiple roles (Students, Instructors, Administrators) and hosts the curated learning resources designed to complement and reinforce classroom instruction.
+
+---
+
+## 🚀 Outcomes & Measured Impact
+
+- **Institutional Endorsement:** The project received formal approval from the University's Academic Direction following comprehensive review.
+- **Pilot Program Execution:** A structured 3-week Proof of Concept was conducted with an initial cohort of 60 students.
+- **User Engagement Metrics:** 51 participants (85% of the cohort) demonstrated sustained platform engagement, contributing valuable feedback on user experience and feature prioritization.
+- **Technical Performance Validation:** The gRPC/DinD pipeline successfully handled concurrent code execution requests, validating the architecture's performance characteristics under realistic load conditions.
+
+---
+
+## 🔮 Production Roadmap (Azure Migration)
+
+The current deployment serves as a validated proof of concept. The production roadmap encompasses the following milestones:
+
+- **Container Orchestration:** Migration of services to **Azure Container Apps** for managed scaling and deployment.
+- **Compute Optimization:** Deployment of compute-intensive Golang services to dedicated virtual machine instances.
+- **Messaging Infrastructure:** Transition from local Kafka deployment to **Azure Service Bus** for enterprise-grade reliability.
+- **Database Scaling:** Migration to **Azure Database for PostgreSQL (Flexible Server)** for managed database operations and automated scaling.
+
+---
+
+## 🎓 Academic Context & Team Selection
+
+This project was developed under academic supervision at the **Peruvian University of Applied Sciences (UPC)** in Lima, Peru.
+The development team was selected exclusively from the **Top 10%** of the Software Engineering program, and the project received formal academic validation upon completion.
