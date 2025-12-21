@@ -33,7 +33,9 @@ coverUrl: "/LevelUpJourney.webp"
 * [Service Architecture (Bounded Contexts)](#-service-architecture-bounded-contexts)
     * [1. Code Execution Service](#1-code-execution-service-golang)
     * [2. Gamification & Challenge Engine](#2-gamification--challenge-engine-spring-boot)
-    * [3. Identity Management & Learning Resources](#3-identity-management--learning-resources-spring-boot)
+    * [3. Identity & Access Management](#3-identity--access-management-spring-boot)
+    * [4. User Profiles Service](#4-user-profiles-service-spring-boot)
+    * [5. Community Service](#5-community-service-spring-boot)
 * [Outcomes & Measured Impact](#-outcomes--measured-impact)
 * [Production Roadmap (Azure Migration)](#-production-roadmap-azure-migration)
 * [Academic Context & Team Selection](#-academic-context--team-selection)
@@ -56,13 +58,13 @@ As the technical lead, I designed the system following **Domain-Driven Design (D
 
 ### System Context Overview (C4 Model)
 
-[Insert Image: System Context Diagram]
+![System Context Diagram](/assets/levelupjourney/Context-LevelUpJourney.png)
 
 > **Integration Highlights:** The platform implements secure authentication through **Google and GitHub OAuth** providers, enabling streamlined user onboarding. Media asset management is handled through **Cloudinary** infrastructure.
 
 ### Container Architecture & Communication Patterns
 
-[Insert Image: Container Diagram]
+![Container Diagram](/assets/levelupjourney/Containers-LevelUpJourney.png)
 
 - **Event-Driven Communication:** Inter-service messaging is orchestrated through **Apache Kafka**, enabling loose coupling and resilient data flows.
 - **Low-Latency Processing:** The *Challenges Service* communicates with the *Code Runner* through **gRPC**, ensuring minimal response times for code execution workflows.
@@ -88,21 +90,33 @@ Each microservice encapsulates a distinct **Bounded Context**, designed for inde
 
 ### 1. Code Execution Service (Golang)
 
-[Insert Image: Component Diagram - Code Runner]
+![Component Diagram - Code Runner](/assets/levelupjourney/Component-CodeRunner.png)
 
 > Developed with the **Gin** framework, this service provides secure execution of student-submitted code within isolated containerized environments using **Docker-in-Docker (DinD)**. This approach ensures complete isolation between user code and production infrastructure while delivering real-time execution feedback.
 
 ### 2. Gamification & Challenge Engine (Spring Boot)
 
-[Insert Image: Component Diagram - Challenges]
+![Component Diagram - Challenges](/assets/levelupjourney/Component-Challenges.png)
 
 > This service manages the core business logic for programming exercises, experience point allocation, and achievement system triggers. Communication with the Code Execution Service occurs via gRPC to optimize response latency for interactive features.
 
-### 3. Identity Management & Learning Resources (Spring Boot)
+### 3. Identity & Access Management (Spring Boot)
 
-[Insert Image: Component Diagram - Academy]
+![Component Diagram - IAM](/assets/levelupjourney/Component-IAM.png)
 
-> Responsible for user identity management across multiple roles (Students, Instructors, Administrators) and hosts the curated learning resources designed to complement and reinforce classroom instruction.
+> Handles authentication flows, authorization policies, and session management across the platform. Integrates with external OAuth providers (Google, GitHub) and maintains secure token-based access control for all protected resources.
+
+### 4. User Profiles Service (Spring Boot)
+
+![Component Diagram - Profiles](/assets/levelupjourney/Component-Profiles.png)
+
+> Manages user profile data, progress tracking, and personalization settings. Maintains student learning histories, achievement records, and preferences to deliver a tailored educational experience.
+
+### 5. Community Service (Spring Boot)
+
+![Component Diagram - Community](/assets/levelupjourney/Component-Community.png)
+
+> Facilitates social learning features including discussion forums, peer collaboration tools, and knowledge sharing capabilities. Enables students to engage with their peers and instructors in a structured academic environment.
 
 ---
 
