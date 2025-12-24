@@ -1,14 +1,15 @@
 ---
 import Github from "./ui/icons/github.astro";
 import LinkedIn from "./ui/icons/linkedIn.astro";
+import CopyEmail from "./ui/CopyEmail.astro";
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     <div>
-        <h4>Jonatan Acuña Corahua</h4>
+        <h4 class="text-zinc-100">Jonatan Acuña Corahua</h4>
         <div>
             <p class="text-zinc-400">Full-Stack Software Engineer</p>
-            <p class="text-balance">
+            <p class="text-zinc-300 text-balance">
                 Software Engineering student in Lima, Peru. Passionate about
                 full-stack development and architecture. I build software with a
                 focus on real-world impact, always striving to learn more and
@@ -17,18 +18,26 @@ import LinkedIn from "./ui/icons/linkedIn.astro";
         </div>
         <ul class="flex gap-4 mt-4">
             <li>
-                <a href="https://github.com/JonatanFD">
+                <a
+                    href="https://github.com/JonatanFD"
+                    class="text-zinc-400 hover:text-zinc-100 transition-colors"
+                >
                     <Github class="size-6" />
                 </a>
             </li>
             <li>
                 <a
                     href="https://www.linkedin.com/in/jonatan-acu%C3%B1a-corahua-94a136372/"
+                    class="text-zinc-400 hover:text-zinc-100 transition-colors"
                 >
                     <LinkedIn class="size-6" />
                 </a>
             </li>
         </ul>
+
+        <div class="mt-4">
+            <CopyEmail email="jonatanacunacor@gmail.com" />
+        </div>
     </div>
     <div>
         <img

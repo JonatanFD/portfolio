@@ -1,1 +1,14 @@
-<div class="block h-px w-full bg-zinc-800 my-4"></div>
+---
+interface Props {
+    class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div
+    class:list={["block h-px w-full bg-zinc-700/60 my-6", className]}
+    role="separator"
+    aria-orientation="horizontal"
+>
+</div>

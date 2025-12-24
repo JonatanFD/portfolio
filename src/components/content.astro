@@ -21,7 +21,9 @@ import Separator from "./ui/Separator.astro";
 
     <section class="relative">
         <div class="flex flex-col md:grid md:grid-cols-2 gap-4">
-            <h4 class="md:sticky md:top-16 md:self-start">Projects</h4>
+            <h4 class="md:sticky md:top-16 md:self-start text-zinc-100">
+                Projects
+            </h4>
 
             <ul>
                 {
@@ -39,16 +41,23 @@ import Separator from "./ui/Separator.astro";
 
     <section class="relative">
         <div class="flex flex-col md:grid md:grid-cols-2 gap-4">
-            <h4 class="md:sticky md:top-16 md:self-start">Tech Stack</h4>
+            <h4 class="md:sticky md:top-16 md:self-start text-zinc-100">
+                Tech Stack
+            </h4>
 
             <div>
                 {
                     techStack.map((cat) => (
                         <section class="not-first:mt-8">
-                            <p>{cat.category}</p>
+                            <p class="text-zinc-400 font-medium">
+                                {cat.category}
+                            </p>
                             <ul class="grid grid-cols-3 justify-items-center sm:grid-cols-4 md:grid-cols-5 gap-4 md:gap-6 mt-2">
                                 {cat.techs.map((tech) => (
-                                    <li title={tech.name}>
+                                    <li
+                                        title={tech.name}
+                                        class="text-zinc-400 hover:text-zinc-100 transition-colors"
+                                    >
                                         {<tech.component class="size-8" />}
                                     </li>
                                 ))}
