@@ -1,21 +1,10 @@
 ---
-import Content from "../components/content.astro";
-import Footer from "../components/footer.astro";
-import "../styles/global.css";
+import Content from "../components/Content.astro";
+import Footer from "../components/Footer.astro";
+import Layout from "../components/Layout.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Jonatan AC</title>
-    </head>
-    <body>
-        <main class="flex flex-col max-w-3xl mx-auto">
-            <Content />
-            <Footer />
-        </main>
-    </body>
-</html>
+<Layout>
+    <Content />
+    <Footer />
+</Layout>

@@ -4,3 +4,15 @@ body {
     background-color: #181818;
     color: #fff;
 }
+
+h4 {
+    @apply scroll-m-20 text-xl font-medium tracking-tight;
+}
+
+p {
+    @apply leading-7;
+}
+
+p:not(:first-child) {
+    @apply mt-6;
+}
