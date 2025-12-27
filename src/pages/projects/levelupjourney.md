@@ -1,146 +1,63 @@
 ---
 layout: ../../components/MarkdownProjectLayout.astro
-title: "📚 Level Up Journey 🎮"
-description: "An immersive gamified learning platform for students at Universidad Peruana de Ciencias Aplicadas (UPC) in Lima, Peru."
-date: "2025-11-1"
-tags: [
-      "Full-Stack",
-      "Next.js",
-      "Spring Boot",
-      "PostgreSQL",
-      "Microservices",
-      "Domain-Driven Design",
-      "Azure",
-    ]
+title: "📚 Level Up Journey: Gamifying IT Education"
+description: "An immersive learning platform engineered to tackle student attrition in engineering programs through gamification."
+date: "2025-11-01"
+tags: ["Software Architecture", "Microservices", "EdTech", "Leadership"]
 coverUrl: "/LevelUpJourney.webp"
 ---
 
 # Engineering Academic Success through Gamification
 
-**Role:** Fullstack Lead & Software Architect
-**Institution:** Universidad Peruana de Ciencias Aplicadas (UPC)
-**Status:** Faculty Approved | Pilot Phase Successfully Completed
+**Role:** Fullstack Lead & Software Architect  
+**Institution:** Universidad Peruana de Ciencias Aplicadas (UPC)  
+**Status:** Pilot Successfully Completed | Faculty Endorsed
 
 ---
 
-## 📖 Table of Contents
+## 📌 The Challenge: Addressing IT Student Attrition
+In the early stages of Software Engineering and Computer Science programs, universities face a critical **30% dropout rate**. Traditional learning methods often fail to keep students engaged with complex technical subjects.
 
-* [Executive Summary](#-executive-summary)
-* [Architectural Design & Strategy](#️-architectural-design--strategy)
-    * [System Context Overview (C4 Model)](#system-context-overview-c4-model)
-    * [Container Architecture & Communication Patterns](#container-architecture--communication-patterns)
-* [Technology Stack](#️-technology-stack)
-* [Service Architecture (Bounded Contexts)](#-service-architecture-bounded-contexts)
-    * [1. Code Execution Service](#1-code-execution-service-golang)
-    * [2. Gamification & Challenge Engine](#2-gamification--challenge-engine-spring-boot)
-    * [3. Identity & Access Management](#3-identity--access-management-spring-boot)
-    * [4. User Profiles Service](#4-user-profiles-service-spring-boot)
-    * [5. Community Service](#5-community-service-spring-boot)
-* [Outcomes & Measured Impact](#-outcomes--measured-impact)
-* [Production Roadmap (Azure Migration)](#-production-roadmap-azure-migration)
-* [Academic Context & Team Selection](#-academic-context--team-selection)
+**Level Up Journey** was designed to solve this by transforming the learning curve into a gamified experience. The project aimed to **reduce attrition by 10%** and improve average academic performance by 4–5 points on a 20-point scale.
 
 ---
 
-## 📌 Executive Summary
+## 🏗️ Leadership & Architectural Vision
+As the Technical Lead and Architect, my focus was not just on writing code, but on designing a resilient ecosystem capable of scaling to thousands of students.
 
-**Level Up Journey** is a polyglot microservices platform engineered to address a critical challenge in higher education: the **30% dropout rate** observed in early-stage IT programs, including Software Engineering, Computer Systems, and Computer Science curricula.
+### Strategic Design
+I implemented **Domain-Driven Design (DDD)** to ensure the system remained modular and maintainable. The architecture was split into distinct business domains: *Gamification, Community, Code Execution, and Identity.*
 
-The platform combines gamified programming challenges with structured supplementary learning materials, with measurable objectives to **reduce student attrition by 10%** and improve academic performance by **4–5 points** on the institutional 20-point grading scale.
-
-Following a rigorous 3-week pilot program involving 51 active participants, the project received formal validation and approval from the University's Academic Direction.
-
----
-
-## 🏗️ Architectural Design & Strategy
-
-As the technical lead, I designed the system following **Domain-Driven Design (DDD)** principles to ensure long-term scalability and maintain clear boundaries between business domains. The architecture follows a **microservices-oriented approach**, leveraging asynchronous communication patterns and polyglot persistence strategies.
-
-### System Context Overview (C4 Model)
-
-![System Context Diagram](/assets/levelupjourney/Context-LevelUpJourney.png)
-
-> **Integration Highlights:** The platform implements secure authentication through **Google and GitHub OAuth** providers, enabling streamlined user onboarding. Media asset management is handled through **Cloudinary** infrastructure.
-
-### Container Architecture & Communication Patterns
-
-![Container Diagram](/assets/levelupjourney/Containers-LevelUpJourney.png)
-
-- **Event-Driven Communication:** Inter-service messaging is orchestrated through **Apache Kafka**, enabling loose coupling and resilient data flows.
-- **Low-Latency Processing:** The *Challenges Service* communicates with the *Code Runner* through **gRPC**, ensuring minimal response times for code execution workflows.
-- **Service Coordination:** A custom **Service Discovery** mechanism and **Spring-based API Gateway** manage request routing, load distribution, and security policies.
+> **Key Leadership Fact:** I led a development team selected exclusively from the **Top 10%** of the Software Engineering program, orchestrating a polyglot microservices environment (Java & Go).
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Technology Stack (High-Level)
+We selected a modern stack focused on high availability and low-latency feedback:
 
-| Layer | Technologies |
-| --- | --- |
-| **Frontend** | Next.js, React, Tailwind CSS |
-| **Backend Services** | Spring Boot (Java), Gin (Golang) |
-| **Data Layer** | PostgreSQL (Relational), MongoDB (Document Store) |
-| **Infrastructure** | Docker-in-Docker (DinD), Apache Kafka, gRPC |
-| **Cloud Strategy** | Azure Container Apps, Azure Service Bus, Azure Database for PostgreSQL |
+* **Core:** Polyglot microservices built with **Spring Boot (Java)** and **Gin (Golang)**.
+* **Frontend:** A responsive, interactive UI built with **Next.js** and **Tailwind CSS**.
+* **Messaging:** Event-driven communication via **Apache Kafka** to ensure system decoupling.
+* **Infrastructure:** Containerized deployment designed for **Azure Container Apps** and managed PostgreSQL databases.
 
 ---
 
-## 🧩 Service Architecture (Bounded Contexts)
+## 🚀 Measured Impact & Outcomes
+This project moved beyond a "coding exercise" into a validated educational tool:
 
-Each microservice encapsulates a distinct **Bounded Context**, designed for independent scalability and operational resilience.
-
-### 1. Code Execution Service (Golang)
-
-![Component Diagram - Code Runner](/assets/levelupjourney/Component-CodeRunner.png)
-
-> Developed with the **Gin** framework, this service provides secure execution of student-submitted code within isolated containerized environments using **Docker-in-Docker (DinD)**. This approach ensures complete isolation between user code and production infrastructure while delivering real-time execution feedback.
-
-### 2. Gamification & Challenge Engine (Spring Boot)
-
-![Component Diagram - Challenges](/assets/levelupjourney/Component-Challenges.png)
-
-> This service manages the core business logic for programming exercises, experience point allocation, and achievement system triggers. Communication with the Code Execution Service occurs via gRPC to optimize response latency for interactive features.
-
-### 3. Identity & Access Management (Spring Boot)
-
-![Component Diagram - IAM](/assets/levelupjourney/Component-IAM.png)
-
-> Handles authentication flows, authorization policies, and session management across the platform. Integrates with external OAuth providers (Google, GitHub) and maintains secure token-based access control for all protected resources.
-
-### 4. User Profiles Service (Spring Boot)
-
-![Component Diagram - Profiles](/assets/levelupjourney/Component-Profiles.png)
-
-> Manages user profile data, progress tracking, and personalization settings. Maintains student learning histories, achievement records, and preferences to deliver a tailored educational experience.
-
-### 5. Community Service (Spring Boot)
-
-![Component Diagram - Community](/assets/levelupjourney/Component-Community.png)
-
-> Facilitates social learning features including discussion forums, peer collaboration tools, and knowledge sharing capabilities. Enables students to engage with their peers and instructors in a structured academic environment.
+* **Institutional Endorsement:** Following a rigorous technical review, the project received formal approval from the University’s Academic Direction.
+* **Pilot Success:** We conducted a 3-week Proof of Concept with 60 students. **85% of participants** demonstrated sustained engagement throughout the pilot.
+* **Innovative Feedback Loop:** We developed a real-time code execution engine (isolated via Docker), providing students with instant feedback on their logic—a crucial factor in maintaining learning momentum.
 
 ---
 
-## 🚀 Outcomes & Measured Impact
-
-- **Institutional Endorsement:** The project received formal approval from the University's Academic Direction following comprehensive review.
-- **Pilot Program Execution:** A structured 3-week Proof of Concept was conducted with an initial cohort of 60 students.
-- **User Engagement Metrics:** 51 participants (85% of the cohort) demonstrated sustained platform engagement, contributing valuable feedback on user experience and feature prioritization.
-- **Technical Performance Validation:** The gRPC/DinD pipeline successfully handled concurrent code execution requests, validating the architecture's performance characteristics under realistic load conditions.
-
----
-
-## 🔮 Production Roadmap (Azure Migration)
-
-The current deployment serves as a validated proof of concept. The production roadmap encompasses the following milestones:
-
-- **Container Orchestration:** Migration of services to **Azure Container Apps** for managed scaling and deployment.
-- **Compute Optimization:** Deployment of compute-intensive Golang services to dedicated virtual machine instances.
-- **Messaging Infrastructure:** Transition from local Kafka deployment to **Azure Service Bus** for enterprise-grade reliability.
-- **Database Scaling:** Migration to **Azure Database for PostgreSQL (Flexible Server)** for managed database operations and automated scaling.
+## 🔮 Roadmap to Production
+Following the successful pilot, the platform is positioned for a full-scale **Azure** migration, focusing on:
+1.  **Global Scalability:** Leveraging Azure Container Apps to support the entire engineering faculty.
+2.  **Enterprise Reliability:** Transitioning to Azure Service Bus for mission-critical messaging.
+3.  **Predictive Analytics:** Utilizing activity data to identify "at-risk" students before they decide to drop out.
 
 ---
 
-## 🎓 Academic Context & Team Selection
-
-This project was developed under academic supervision at the **Peruvian University of Applied Sciences (UPC)** in Lima, Peru.
-The development team was selected exclusively from the **Top 10%** of the Software Engineering program, and the project received formal academic validation upon completion.
+> **Personal Contribution:**
+> Beyond the architecture, I was responsible for the global technical vision and solving critical bottlenecks, such as implementing low-latency communication (gRPC) between the challenge engine and the secure code runner.
