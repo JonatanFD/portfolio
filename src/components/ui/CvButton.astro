@@ -1,0 +1,14 @@
+---
+interface Props {
+    url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<a
+    href={url}
+    class="copy-email-container inline-flex items-center gap-2 px-2 py-1 text-xs font-medium rounded-md bg-zinc-800/80 text-zinc-300 border border-zinc-700/50 cursor-pointer hover:bg-zinc-800 hover:text-zinc-100 hover:border-zinc-600 transition-colors"
+>
+    <span class="copy-email-text">CV</span>
+</a>
