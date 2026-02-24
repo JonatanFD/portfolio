@@ -1,6 +1,7 @@
 ---
 import Footer from "./Footer.astro";
 import Layout from "./Layout.astro";
+import Github from "./ui/icons/github.astro";
 import Tag from "./ui/Tag.astro";
 
 interface Props {
@@ -10,10 +11,12 @@ interface Props {
         date?: string;
         tags?: string[];
         coverUrl?: string;
+        projectUrl: string;
     };
 }
 
 const { frontmatter } = Astro.props;
+console.log(frontmatter);
 ---
 
 <Layout>
@@ -77,6 +80,16 @@ const { frontmatter } = Astro.props;
                 )
             }
         </header>
+
+        <div>
+            <a
+                href={frontmatter.projectUrl}
+                class="copy-email-container inline-flex items-center gap-2 px-2 py-1 text-xs font-medium rounded-md bg-zinc-800/80 text-zinc-300 border border-zinc-700/50 cursor-pointer hover:bg-zinc-800 hover:text-zinc-100 hover:border-zinc-600 transition-colors"
+            >
+                <Github class="size-6" />
+                <span class="copy-email-text">Check this project</span>
+            </a>
+        </div>
 
         <!-- Markdown Content -->
         <div class="prose prose-slate dark:prose-invert max-w-none">

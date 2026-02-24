@@ -5,6 +5,7 @@ description: "An immersive learning platform engineered to tackle student attrit
 date: "2025-11-01"
 tags: ["Software Architecture", "Microservices", "EdTech", "Leadership"]
 coverUrl: "/LevelUpJourney.webp"
+projectUrl: 'https://github.com/LevelUp-Journey'
 ---
 
 # Engineering Academic Success through Gamification
