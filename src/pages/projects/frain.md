@@ -5,6 +5,7 @@ description: "A modern alternative to Structurizr that connects system design wi
 date: "2026-02-20"
 tags: ["Software Architecture", "DevTools", "TypeScript SDK", "C4 Model"]
 coverUrl: "/Frain.webp"
+projectUrl: 'https://github.com/Frain-Architecture-as-Code'
 ---
 
 # A Better Way to Manage Architecture as Code
