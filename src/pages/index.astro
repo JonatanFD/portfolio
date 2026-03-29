@@ -1,5 +1,5 @@
 ---
-
+import "./globals.css";
 ---
 
 <html lang="en">
@@ -9,14 +9,9 @@
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <link rel="stylesheet" href="../styles/globals.css" />
         <title>Jonatan AC</title>
     </head>
     <body>
-        <main class="h"></main>
+        <main class="min-h-screen w-full max-w-4xl mx-auto"></main>
     </body>
 </html>
-
-<style is:global>
-    @import "tailwindcss";
-</style>
