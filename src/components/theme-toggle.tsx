@@ -3,7 +3,9 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunDimIcon } from "@phosphor-icons/react";
 
-export function ModeToggle() {
+interface ThemeToggleProps extends React.ComponentProps<typeof Button> {}
+
+export function ThemeToggle(props: ThemeToggleProps) {
     const [theme, setThemeState] = React.useState<
         "theme-light" | "dark" | "system"
     >("dark");
@@ -25,6 +27,7 @@ export function ModeToggle() {
         <Button
             variant="outline"
             size="icon"
+            {...props}
             onClick={() =>
                 setThemeState((t) =>
                     t === "theme-light" ? "dark" : "theme-light",

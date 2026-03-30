@@ -6,6 +6,8 @@ import Projects from "../components/sections/projects.astro";
 import Skills from "../components/sections/skills.astro";
 import WorkExperience from "../components/sections/work-experience.astro";
 import Footer from "../components/sections/footer.astro";
+import { ThemeToggle } from "../components/theme-toggle";
+
 import "../styles/globals.css";
 ---
 
@@ -45,7 +47,7 @@ import "../styles/globals.css";
         <meta name="generator" content={Astro.generator} />
         <title>Jonatan AC</title>
     </head>
-    <body>
+    <body class="relative">
         <main class="min-h-screen w-full max-w-2xl mx-auto flex flex-col gap-8">
             <Hero />
             <About />
@@ -55,5 +57,7 @@ import "../styles/globals.css";
             <Skills />
             <Footer />
         </main>
+
+        <ThemeToggle client:load className="absolute top-4 right-4" />
     </body>
 </html>
