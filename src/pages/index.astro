@@ -1,5 +1,11 @@
 ---
-import Hero from "../components/hero.astro";
+import About from "../components/sections/about.astro";
+import Education from "../components/sections/education.astro";
+import Hero from "../components/sections/hero.astro";
+import Projects from "../components/sections/projects.astro";
+import Skills from "../components/sections/skills.astro";
+import WorkExperience from "../components/sections/work-experience.astro";
+import Footer from "../components/sections/footer.astro";
 import "../styles/globals.css";
 ---
 
@@ -13,8 +19,14 @@ import "../styles/globals.css";
         <title>Jonatan AC</title>
     </head>
     <body>
-        <main class="min-h-screen w-full max-w-4xl mx-auto flex flex-col">
+        <main class="min-h-screen w-full max-w-4xl mx-auto flex flex-col gap-8">
             <Hero />
+            <About />
+            <WorkExperience />
+            <Education />
+            <Projects />
+            <Skills />
+            <Footer />
         </main>
     </body>
 </html>
