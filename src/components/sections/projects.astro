@@ -12,8 +12,8 @@ const projects = [
     {
         title: "Frain",
         description:
-            "A modern alternative to structurizr. Architecture as Code.",
-        coverUrl: "",
+            "A modern alternative to Structurizr. Architecture as Code.",
+        coverUrl: "/projects/Frain.png",
         tags: [
             "Next.js",
             "React",
@@ -29,7 +29,7 @@ const projects = [
     {
         title: "Omnipresent",
         description: "A fast air mouse built with rust and tauri.",
-        coverUrl: "",
+        coverUrl: "/projects/Omnipresent.png",
         tags: ["Rust", "Tauri", "Android", "Linux", "macOS", "Windows"],
         githubUrl: "https://github.com/JonatanFD/Omnipresent",
         websiteUrl: "",
@@ -38,7 +38,7 @@ const projects = [
 ---
 
 <SectionTemplate title="Projects">
-    <ul class="space-y-4">
+    <ul class="space-y-4 grid grid-cols-2 gap-4">
         {projects.map((item) => <ProjectItem {...item} />)}
     </ul>
 </SectionTemplate>
