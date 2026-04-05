@@ -1,5 +1,8 @@
 ---
-
+import { Linkedin } from "../ui/svgs/linkedin";
+import { Button } from "../ui/button";
+import { GithubDark } from "../ui/svgs/githubDark";
+import { GithubLight } from "../ui/svgs/githubLight";
 ---
 
 <header class="pt-10 flex items-center">
@@ -9,6 +12,33 @@
             Software Engineer from Lima, Peru. I love designing and building
             scalable and usefull software for everybody.
         </h2>
+
+        <div>
+            <a
+                href="https://www.linkedin.com/in/jonatanacunacor/"
+                target="_blank"
+            >
+                <Button
+                    size="sm"
+                    variant="outline"
+                    className="gap-2 items-center"
+                >
+                    <Linkedin />
+                    <span>LinkedIn</span>
+                </Button>
+            </a>
+            <a href="https://github.com/JonatanFD" target="_blank">
+                <Button
+                    size="sm"
+                    variant="outline"
+                    className="gap-2 items-center"
+                >
+                    <GithubDark className="hidden dark:block" />
+                    <GithubLight className="block dark:hidden" />
+                    <span>GitHub</span>
+                </Button>
+            </a>
+        </div>
     </div>
     <div>
         <img

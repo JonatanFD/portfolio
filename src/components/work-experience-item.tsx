@@ -1,10 +1,3 @@
-import {
-    Accordion,
-    AccordionItem,
-    AccordionTrigger,
-    AccordionContent,
-} from "@/components/ui/accordion";
-
 interface Props {
     company: string;
     brand: string;
