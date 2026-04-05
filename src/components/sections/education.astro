@@ -1,5 +1,20 @@
 ---
+import EducationItem from "../education-item";
 import SectionTemplate from "../section-template.astro";
+
+const education = [
+    {
+        institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
+        logoUrl: "/education/upc.png",
+        degree: "Software Engineer",
+        period: ["Mar 2023", "Current"] as [string, string],
+        description: "",
+    },
+];
 ---
 
-<SectionTemplate title="Education"> Education </SectionTemplate>
+<SectionTemplate title="Education">
+    <ul>
+        {education.map((edu) => <EducationItem client:load {...edu} />)}
+    </ul>
+</SectionTemplate>
