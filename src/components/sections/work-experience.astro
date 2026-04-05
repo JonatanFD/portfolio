@@ -15,10 +15,6 @@ const workExperience = [
 
 <SectionTemplate title="Work Experience">
     <ul>
-        {
-            workExperience.map((item) => (
-                <WorkExperienceItem client:load {...item} />
-            ))
-        }
+        {workExperience.map((item) => <WorkExperienceItem {...item} />)}
     </ul>
 </SectionTemplate>
