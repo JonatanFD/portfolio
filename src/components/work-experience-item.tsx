@@ -2,7 +2,7 @@ import TimeableItem from "./timeable-item";
 
 interface Props {
     company: string;
-    brand: string;
+    brandUrl: string;
     role: string;
     period: [string, string];
     description: string;
@@ -10,7 +10,7 @@ interface Props {
 
 export default function WorkExperienceItem({
     company,
-    brand,
+    brandUrl,
     role,
     period,
     description,
@@ -18,7 +18,7 @@ export default function WorkExperienceItem({
     return (
         <TimeableItem
             company={company}
-            coverUrl={brand}
+            coverUrl={brandUrl}
             label={role}
             period={period}
             description={description}

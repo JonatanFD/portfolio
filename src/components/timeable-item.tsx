@@ -20,7 +20,7 @@ export default function TimeableItem({
                     <img
                         src={coverUrl}
                         alt={`${company} brand logo`}
-                        className="rounded-full size-12.5"
+                        className="rounded-full size-12.5 object-cover"
                     />
                 </div>
                 <div className="flex-1">
