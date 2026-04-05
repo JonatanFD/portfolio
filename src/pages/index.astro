@@ -9,6 +9,7 @@ import Footer from "../components/sections/footer.astro";
 import { ThemeToggle } from "../components/theme-toggle";
 
 import "../styles/globals.css";
+import Certifications from "@/components/sections/certifications.astro";
 ---
 
 <script is:inline>
@@ -48,13 +49,16 @@ import "../styles/globals.css";
         <title>Jonatan AC</title>
     </head>
     <body class="relative">
-        <main class="min-h-screen w-full max-w-2xl mx-auto flex flex-col gap-8">
+        <main
+            class="min-h-screen w-full max-w-2xl mx-auto flex flex-col gap-8 px-4 sm:px-8"
+        >
             <Hero />
             <About />
             <WorkExperience />
             <Education />
             <Projects />
             <Skills />
+            <Certifications />
             <Footer />
         </main>
 

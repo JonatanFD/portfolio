@@ -28,16 +28,16 @@ export default function ProjectItem({
     tags,
 }: Props) {
     return (
-        <Card className="h-full gap-10 justify-between">
+        <Card className="flex flex-col h-full justify-between">
             <CardHeader>
-                <div className="mb-4 space-y-1">
+                <div className="mb-4 space-y-2">
                     <img
                         src={coverUrl}
                         alt={title}
                         className="rounded-xl border"
                     />
 
-                    <div className="space-x-1">
+                    <div className="flex flex-wrap gap-2 mt-2">
                         <a href={githubUrl} target="_blank">
                             <Button
                                 size="sm"
