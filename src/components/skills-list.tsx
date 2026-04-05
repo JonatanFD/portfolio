@@ -36,6 +36,7 @@ import { Postman } from "./ui/svgs/postman.tsx";
 import { ZedLogo } from "./ui/svgs/zedLogo.tsx";
 import { ZedLogoDark } from "./ui/svgs/zedLogoDark.tsx";
 import { Vscode } from "./ui/svgs/vscode.tsx";
+import { Vite } from "./ui/svgs/vite.tsx";
 
 type Skill = {
     name: string;
@@ -152,6 +153,10 @@ const categories: SkillCategory[] = [
             {
                 name: "VS Code",
                 icon: <Vscode />,
+            },
+            {
+                name: "Vite",
+                icon: <Vite />,
             },
         ],
     },
