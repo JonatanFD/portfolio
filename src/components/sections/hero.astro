@@ -3,6 +3,7 @@ import { Linkedin } from "../ui/svgs/linkedin";
 import { Button } from "../ui/button";
 import { GithubDark } from "../ui/svgs/githubDark";
 import { GithubLight } from "../ui/svgs/githubLight";
+import EmailButton from "../email-button.astro";
 ---
 
 <header class="pt-10 flex items-center">
@@ -38,6 +39,8 @@ import { GithubLight } from "../ui/svgs/githubLight";
                     <span>GitHub</span>
                 </Button>
             </a>
+
+            <EmailButton hideEmail={true} />
         </div>
     </div>
     <div>
