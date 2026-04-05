@@ -37,6 +37,10 @@ import { ZedLogo } from "./ui/svgs/zedLogo.tsx";
 import { ZedLogoDark } from "./ui/svgs/zedLogoDark.tsx";
 import { Vscode } from "./ui/svgs/vscode.tsx";
 import { Vite } from "./ui/svgs/vite.tsx";
+import { ApacheKafkaDark } from "./ui/svgs/apacheKafkaDark.tsx";
+import { ApacheKafkaLight } from "./ui/svgs/apacheKafkaLight.tsx";
+import { Vercel } from "./ui/svgs/vercel.tsx";
+import { VercelDark } from "./ui/svgs/vercelDark.tsx";
 
 type Skill = {
     name: string;
@@ -114,6 +118,15 @@ const categories: SkillCategory[] = [
             { name: "NestJS", icon: <Nestjs /> },
             { name: "Python", icon: <Python /> },
             { name: "FastAPI", icon: <Fastapi /> },
+            {
+                name: "Apache Kafka",
+                icon: (
+                    <>
+                        <ApacheKafkaDark className="hidden dark:inline" />
+                        <ApacheKafkaLight className="dark:hidden" />
+                    </>
+                ),
+            },
         ],
     },
     {
@@ -124,6 +137,15 @@ const categories: SkillCategory[] = [
             { name: "Azure", icon: <Azure /> },
             { name: "Linux", icon: <Linux /> },
             { name: "Jenkins", icon: <Jenkins /> },
+            {
+                name: "Vercel",
+                icon: (
+                    <>
+                        <Vercel className="dark:hidden" />
+                        <VercelDark className="hidden dark:inline" />
+                    </>
+                ),
+            },
         ],
     },
     {
