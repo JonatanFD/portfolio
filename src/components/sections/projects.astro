@@ -1,3 +1,44 @@
 ---
-
+import ProjectItem from "../project-item";
+import SectionTemplate from "../section-template.astro";
+const projects = [
+    // In future we can update this
+    // {
+    //     title: "Level Up Journey",
+    //     description: "A gamified platform to learn programming related skills.",
+    //     coverUrl: "",
+    //     tags: [],
+    // },
+    {
+        title: "Frain",
+        description:
+            "A modern alternative to structurizr. Architecture as Code.",
+        coverUrl: "",
+        tags: [
+            "Next.js",
+            "React",
+            "NestJS",
+            "Java",
+            "Docker",
+            "SDK",
+            "TypeScript",
+        ],
+        githubUrl: "https://github.com/Frain-Architecture-as-Code",
+        websiteUrl: "https://frain-web.vercel.app/",
+    },
+    {
+        title: "Omnipresent",
+        description: "A fast air mouse built with rust and tauri.",
+        coverUrl: "",
+        tags: ["Rust", "Tauri", "Android", "Linux", "macOS", "Windows"],
+        githubUrl: "https://github.com/JonatanFD/Omnipresent",
+        websiteUrl: "",
+    },
+];
 ---
+
+<SectionTemplate title="Projects">
+    <ul class="space-y-4">
+        {projects.map((item) => <ProjectItem {...item} />)}
+    </ul>
+</SectionTemplate>
