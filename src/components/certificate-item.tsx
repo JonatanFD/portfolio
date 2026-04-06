@@ -36,13 +36,13 @@ export function CertificateItem({
                 </div>
 
                 <div className="p-3 flex-1 flex flex-col justify-between">
-                    <h3 className="text-sm font-semibold leading-tight line-clamp-2">
-                        {title}
-                    </h3>
-
-                    <p className="text-xs text-neutral-500 mt-1">
-                        {issuer} • {date}
-                    </p>
+                    <div>
+                        <h3 className="text-sm font-semibold leading-tight line-clamp-2">
+                            {title}
+                        </h3>
+                        <p className="text-xs text-neutral-500 mt-1">{date}</p>
+                    </div>
+                    <p className="text-xs text-neutral-500 mt-auto">{issuer}</p>
                 </div>
             </Card>
         </a>
