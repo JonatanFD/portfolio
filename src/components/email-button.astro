@@ -1,0 +1,76 @@
+---
+import { EnvelopeSimpleIcon, CheckIcon } from "@phosphor-icons/react/dist/ssr";
+import { Button } from "./ui/button";
+
+interface Props {
+    hideEmail?: boolean;
+}
+
+const { hideEmail = false } = Astro.props as Props;
+const EMAIL = "jonatanacunacor@gmail.com";
+const displayText = hideEmail ? "Email" : EMAIL;
+---
+
+<div class="email-container inline-block">
+    <Button
+        size="sm"
+        variant="outline"
+        className="items-center gap-2"
+        data-email={EMAIL}
+        data-email-btn
+    >
+        <span class="email-icon flex items-center">
+            <EnvelopeSimpleIcon weight="bold" />
+        </span>
+
+        <span class="check-icon hidden text-green-500 flex items-center">
+            <CheckIcon weight="bold" />
+        </span>
+
+        <span class="email-text" data-default={displayText}>{displayText}</span>
+    </Button>
+</div>
+
+<script>
+    const containers = document.querySelectorAll(".email-container");
+
+    containers.forEach((container) => {
+        const btn = container.querySelector(
+            "[data-email-btn]",
+        ) as HTMLButtonElement;
+        const text = container.querySelector(".email-text") as HTMLElement;
+        const envelopeIcon = container.querySelector(
+            ".email-icon",
+        ) as HTMLElement;
+        const checkIcon = container.querySelector(".check-icon") as HTMLElement;
+
+        const emailToCopy = btn.dataset.email!;
+        const defaultText = text.dataset.default!;
+        let isCopying = false;
+
+        btn.addEventListener("click", async () => {
+            if (isCopying) return;
+            isCopying = true;
+
+            try {
+                await navigator.clipboard.writeText(emailToCopy);
+
+                envelopeIcon.classList.add("hidden");
+                checkIcon.classList.remove("hidden");
+                text.textContent = "Copiado";
+                text.classList.add("text-green-500");
+
+                setTimeout(() => {
+                    envelopeIcon.classList.remove("hidden");
+                    checkIcon.classList.add("hidden");
+                    text.textContent = defaultText;
+                    text.classList.remove("text-green-500");
+                    isCopying = false;
+                }, 2000);
+            } catch (err) {
+                console.error("Error al copiar:", err);
+                isCopying = false;
+            }
+        });
+    });
+</script>

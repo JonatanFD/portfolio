@@ -1,0 +1,53 @@
+---
+import SectionTemplate from "../section-template.astro";
+import { CertificateItem } from "../certificate-item.tsx";
+
+const certificates = [
+    {
+        coverUrl:
+            "/certificates/Inteligencia-de-datos-para-toma-de-decisiones.jpg",
+        alt: "Inteligencia de datos para toma de decisiones",
+        pdfHref:
+            "/certificates/Inteligencia-de-datos-para-toma-de-decisiones.pdf",
+        title: "Inteligencia de datos para toma de decisiones",
+        issuer: "Universidad Austral de Argentina",
+        date: "Feb 13, 2026",
+    },
+    {
+        coverUrl: "/certificates/Databases-for-Data-Scientists.jpg",
+        alt: "Databases-for-Data-Scientists",
+        pdfHref: "/certificates/Databases-for-Data-Scientists.pdf",
+        title: "Databases for Data Scientists",
+        issuer: "University of Colorado Boulder",
+        date: "Jun 26, 2025",
+    },
+    {
+        coverUrl: "/certificates/Generative-AI-Fundamentals.jpg",
+        alt: "Generative AI Fundamentals",
+        pdfHref: "/certificates/Generative-AI-Fundamentals.pdf",
+        title: "Generative AI Fundamentals",
+        issuer: "IBM",
+        date: "Nov 22, 2025",
+    },
+    {
+        coverUrl: "/certificates/MongoDB.jpg",
+        alt: "MongoDB Certification",
+        pdfHref: "/certificates/MongoDB.pdf",
+        title: "Introduction to MongoDB",
+        issuer: "MongoDB University",
+        date: "Oct 10, 2024",
+    },
+];
+---
+
+<SectionTemplate title="Certificates">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {
+            certificates.map((cert) => (
+                <li class="h-full">
+                    <CertificateItem {...cert} />
+                </li>
+            ))
+        }
+    </ul>
+</SectionTemplate>
