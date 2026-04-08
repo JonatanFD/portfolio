@@ -149,7 +149,7 @@ const categories: SkillCategory[] = [
         ],
     },
     {
-        title: "Herramientas",
+        title: "Favorite Tools",
         skills: [
             {
                 name: "GitHub",
